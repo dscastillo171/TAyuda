@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15D21" minimumToolsVersion="Automatic">
+    <entity name="Lugar" representedClassName="Lugar" parentEntity="TAyudaObject" syncable="YES">
+        <attribute name="ciudad" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="direccion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="tramites" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Tramite" inverseName="lugares" inverseEntity="Tramite" syncable="YES"/>
+    </entity>
+    <entity name="Pregunta" representedClassName="Pregunta" parentEntity="TAyudaObject" syncable="YES">
+        <attribute name="enlaceExterno" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posicion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pregunta" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="respuesta" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="subtema" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Subtema" inverseName="preguntas" inverseEntity="Subtema" syncable="YES"/>
+        <relationship name="tramite" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Tramite" inverseName="preguntas" inverseEntity="Tramite" syncable="YES"/>
+    </entity>
+    <entity name="Subtema" representedClassName="Subtema" parentEntity="TAyudaObject" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagen" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posicion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="publicado" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="preguntas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pregunta" inverseName="subtema" inverseEntity="Pregunta" syncable="YES"/>
+        <relationship name="tema" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Tema" inverseName="subtemas" inverseEntity="Tema" syncable="YES"/>
+    </entity>
+    <entity name="TAyudaObject" representedClassName="TAyudaObject" syncable="YES">
+        <attribute name="relevant" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <entity name="Tema" representedClassName="Tema" parentEntity="TAyudaObject" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagen" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="imagenHash" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posicion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="publicado" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="subtemas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Subtema" inverseName="tema" inverseEntity="Subtema" syncable="YES"/>
+    </entity>
+    <entity name="Tramite" representedClassName="Tramite" parentEntity="TAyudaObject" syncable="YES">
+        <attribute name="direccion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="documentos" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gratuito" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="linea" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nombre" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posicion" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="texto" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="lugares" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Lugar" inverseName="tramites" inverseEntity="Lugar" syncable="YES"/>
+        <relationship name="preguntas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Pregunta" inverseName="tramite" inverseEntity="Pregunta" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Pregunta" positionX="-36" positionY="63" width="128" height="135"/>
+        <element name="Subtema" positionX="-54" positionY="18" width="128" height="150"/>
+        <element name="TAyudaObject" positionX="-45" positionY="81" width="128" height="60"/>
+        <element name="Tema" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Tramite" positionX="-27" positionY="72" width="128" height="195"/>
+        <element name="Lugar" positionX="-54" positionY="99" width="128" height="120"/>
+    </elements>
+</model>
