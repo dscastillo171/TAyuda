@@ -150,7 +150,7 @@
         position = [NSNumber numberWithInt:6];
     } else if([tema isEqualToString:@"TUS IMPUESTOS"]){
         position = [NSNumber numberWithInt:8];
-    } else if([tema isEqualToString:@"TUS SERVICIOS PUBLICOS"]){
+    } else if([tema isEqualToString:@"TUS TEMAS DE INTERES"]){
         position = [NSNumber numberWithInt:7];
     } else if([tema isEqualToString:@"TU CONSULTA"]){
         position = [NSNumber numberWithInt:9];

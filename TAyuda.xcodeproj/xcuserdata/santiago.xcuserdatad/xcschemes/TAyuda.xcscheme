@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DE078C9A1BFAA4A100490039"
-               BuildableName = "TAyuda.app"
+               BuildableName = "Wabi.app"
                BlueprintName = "TAyuda"
                ReferencedContainer = "container:TAyuda.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DE078C9A1BFAA4A100490039"
-            BuildableName = "TAyuda.app"
+            BuildableName = "Wabi.app"
             BlueprintName = "TAyuda"
             ReferencedContainer = "container:TAyuda.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DE078C9A1BFAA4A100490039"
-            BuildableName = "TAyuda.app"
+            BuildableName = "Wabi.app"
             BlueprintName = "TAyuda"
             ReferencedContainer = "container:TAyuda.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DE078C9A1BFAA4A100490039"
-            BuildableName = "TAyuda.app"
+            BuildableName = "Wabi.app"
             BlueprintName = "TAyuda"
             ReferencedContainer = "container:TAyuda.xcodeproj">
          </BuildableReference>

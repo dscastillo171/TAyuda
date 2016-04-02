@@ -196,7 +196,7 @@
         image = [UIImage imageNamed:@"IconoVivienda.png"];
     } else if([tema.nombre isEqualToString:@"TUS IMPUESTOS"]){
         image = [UIImage imageNamed:@"IconoImpuestos.png"];
-    } else if([tema.nombre isEqualToString:@"TUS SERVICIOS PUBLICOS"]){
+    } else if([tema.nombre isEqualToString:@"TUS TEMAS DE INTERES"]){
         image = [UIImage imageNamed:@"IconoServicios.png"];
     } else if([tema.nombre isEqualToString:@"TU CONSULTA"]){
         image = [UIImage imageNamed:@"IconoConsulta.png"];
