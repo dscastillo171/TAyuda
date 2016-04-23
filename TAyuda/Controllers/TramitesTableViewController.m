@@ -117,6 +117,7 @@
     SubtemaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubtemaTableViewCell" forIndexPath:indexPath];
     Tramite *tramite = (Tramite *)[self.contentController objectAtIndexPath:indexPath];
     [cell setUpWithTramite:tramite];
+    [cell setBorderColor:[self.temaColor colorWithAlphaComponent:0.5]];
     [cell setNeedsDisplay];
     return cell;
 }

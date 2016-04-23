@@ -132,7 +132,7 @@
         labelView.backgroundColor = [UIColor colorWithWhite:250/255.0 alpha:1.0];
         labelView.textColor = [UIColor colorWithWhite:66/255.0 alpha:1.0];
         labelView.font = [UIFont preferredFontForTextStyle: UIFontTextStyleBody];
-        labelView.font = [UIFont fontWithName:@"FrutigerLTStd-Light" size:[labelView.font pointSize]];
+        labelView.font = [UIFont fontWithName:@"FrutigerLTStd-Roman" size:[labelView.font pointSize]];
         labelView.numberOfLines = 0;
         
         Pregunta *pregunta = [self.preguntas objectAtIndex:section];
@@ -162,7 +162,8 @@
 + (CGFloat)heightOfText:(NSString *)text withWidth:(CGFloat)width{
     static NSDictionary *defaultAttributes;
     if(!defaultAttributes){
-        defaultAttributes = [NSDictionary dictionaryWithObjectsAndKeys: [UIFont preferredFontForTextStyle:UIFontTextStyleBody], NSFontAttributeName, nil];
+        UIFont *font = [UIFont preferredFontForTextStyle: UIFontTextStyleBody];
+        defaultAttributes = [NSDictionary dictionaryWithObjectsAndKeys: [UIFont fontWithName:@"FrutigerLTStd-Roman" size:[font pointSize]], NSFontAttributeName, nil];
     }
     
     CGRect textRect = [text boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:defaultAttributes context:nil];

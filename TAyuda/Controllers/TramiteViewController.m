@@ -130,6 +130,9 @@
         descripction.font = [UIFont fontWithName:@"FrutigerLTStd-Roman" size:[descripction.font pointSize]];
         NSMutableAttributedString *richText = [[[NSAttributedString alloc] initWithData:[self.tramite.texto dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil] mutableCopy];
         [richText addAttribute:NSFontAttributeName value:descripction.font range:NSMakeRange(0, [richText length])];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init] ;
+        [paragraphStyle setAlignment:NSTextAlignmentJustified];
+        [richText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [richText length])];
         descripction.attributedText = [richText attributedStringByTrimming:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         descripction.backgroundColor = [UIColor colorWithWhite:250/255.0 alpha:1.0];
         CGSize descriptionSize = [descripction sizeThatFits:CGSizeMake(viewWidth - 30.0, CGFLOAT_MAX)];
@@ -157,6 +160,9 @@
         linea.font = [UIFont fontWithName:@"FrutigerLTStd-Roman" size:[linea.font pointSize]];
         NSMutableAttributedString *richText = [[[NSAttributedString alloc] initWithData:[self.tramite.linea dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil] mutableCopy];
         [richText addAttribute:NSFontAttributeName value:linea.font range:NSMakeRange(0, [richText length])];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init] ;
+        [paragraphStyle setAlignment:NSTextAlignmentJustified];
+        [richText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [richText length])];
         linea.attributedText = [richText attributedStringByTrimming:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         linea.backgroundColor = [UIColor colorWithWhite:250/255.0 alpha:1.0];
         CGSize lineaSize = [linea sizeThatFits:CGSizeMake(viewWidth - 30.0, CGFLOAT_MAX)];
@@ -184,6 +190,9 @@
         gratuito.font = [UIFont fontWithName:@"FrutigerLTStd-Roman" size:[gratuito.font pointSize]];
         NSMutableAttributedString *richText = [[[NSAttributedString alloc] initWithData:[self.tramite.gratuito dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil] mutableCopy];
         [richText addAttribute:NSFontAttributeName value:gratuito.font range:NSMakeRange(0, [richText length])];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init] ;
+        [paragraphStyle setAlignment:NSTextAlignmentJustified];
+        [richText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [richText length])];
         gratuito.attributedText = [richText attributedStringByTrimming:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         gratuito.backgroundColor = [UIColor colorWithWhite:250/255.0 alpha:1.0];
         CGSize gratuitoSize = [gratuito sizeThatFits:CGSizeMake(viewWidth - 30.0, CGFLOAT_MAX)];
@@ -211,6 +220,9 @@
         documentos.font = [UIFont fontWithName:@"FrutigerLTStd-Roman" size:[documentos.font pointSize]];
         NSMutableAttributedString *richText = [[[NSAttributedString alloc] initWithData:[self.tramite.documentos dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil] mutableCopy];
         [richText addAttribute:NSFontAttributeName value:documentos.font range:NSMakeRange(0, [richText length])];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init] ;
+        [paragraphStyle setAlignment:NSTextAlignmentJustified];
+        [richText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [richText length])];
         documentos.attributedText = [richText attributedStringByTrimming:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         documentos.backgroundColor = [UIColor colorWithWhite:250/255.0 alpha:1.0];
         CGSize documentosSize = [documentos sizeThatFits:CGSizeMake(viewWidth - 30.0, CGFLOAT_MAX)];
@@ -238,6 +250,9 @@
         direccion.font = [UIFont fontWithName:@"FrutigerLTStd-Roman" size:[direccion.font pointSize]];
         NSMutableAttributedString *richText = [[[NSAttributedString alloc] initWithData:[self.tramite.direccion dataUsingEncoding:NSUTF8StringEncoding] options:@{NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: @(NSUTF8StringEncoding)} documentAttributes:nil error:nil] mutableCopy];
         [richText addAttribute:NSFontAttributeName value:direccion.font range:NSMakeRange(0, [richText length])];
+        NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init] ;
+        [paragraphStyle setAlignment:NSTextAlignmentJustified];
+        [richText addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [richText length])];
         direccion.attributedText = [richText attributedStringByTrimming:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
         direccion.backgroundColor = [UIColor colorWithWhite:250/255.0 alpha:1.0];
         CGSize direccionSize = [direccion sizeThatFits:CGSizeMake(viewWidth - 30.0, CGFLOAT_MAX)];
@@ -282,6 +297,21 @@
     }
     
     headerView.frame = CGRectMake(0, 0, viewWidth, lastView.frame.origin.y + lastView.frame.size.height + 25.0);
+    
+    if([self.tramite.texto length] > 0){
+        UIView *leftBorder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 3.0, headerView.frame.size.height)];
+        leftBorder.backgroundColor = self.color;
+        [headerView addSubview:leftBorder];
+        
+        UIView *rightBorder = [[UIView alloc] initWithFrame:CGRectMake(headerView.frame.size.width - 3.0, 0, 3.0, headerView.frame.size.height)];
+        rightBorder.backgroundColor = self.color;
+        [headerView addSubview:rightBorder];
+        
+        UIView *bottomBorder = [[UIView alloc] initWithFrame:CGRectMake(0, headerView.frame.size.height - 3.0, headerView.frame.size.width, 3.0)];
+        bottomBorder.backgroundColor = self.color;
+        [headerView addSubview:bottomBorder];
+    }
+    
     self.tableView.tableHeaderView = headerView;
 }
 

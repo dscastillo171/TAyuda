@@ -93,7 +93,7 @@
     UIColor *lightColor = [headerView.backgroundColor colorWithAlphaComponent:0.50];
     
     UILabel *tittleLabel = [UILabel new];
-    tittleLabel.font = [UIFont fontWithName:@"FrutigerLTStd-Light" size:[[UIFont preferredFontForTextStyle:UIFontTextStyleBody] pointSize]];
+    tittleLabel.font = [UIFont fontWithName:@"FrutigerLTStd-Roman" size:[[UIFont preferredFontForTextStyle:UIFontTextStyleBody] pointSize]];
     tittleLabel.textColor = [UIColor colorWithWhite:66/255.0 alpha:1.0];;
     tittleLabel.backgroundColor = lightColor;
     tittleLabel.textAlignment = NSTextAlignmentCenter;

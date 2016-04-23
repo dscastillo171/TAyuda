@@ -124,12 +124,16 @@
         [self.tableView beginUpdates];
         if(self.expandedSection >= 0){
             [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:self.expandedSection]] withRowAnimation:UITableViewRowAnimationTop];
+            NSIndexSet *index = [[NSIndexSet alloc] initWithIndex:self.expandedSection];
+            [self.tableView reloadSections:index withRowAnimation:UITableViewRowAnimationAutomatic];
         }
         if(self.expandedSection == tag){
             self.expandedSection = -1;
         } else{
             self.expandedSection = tag;
             [self.tableView insertRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:0 inSection:self.expandedSection]] withRowAnimation:UITableViewRowAnimationTop];
+            NSIndexSet *index = [[NSIndexSet alloc] initWithIndex:self.expandedSection];
+            [self.tableView reloadSections:index withRowAnimation:UITableViewRowAnimationAutomatic];
         }
         [self.tableView endUpdates];
     }
@@ -176,10 +180,11 @@
     UIView *headerView;
     if(self.preguntas){
         UILabel *labelView = [UILabel new];
-        labelView.backgroundColor = [UIColor colorWithWhite:250/255.0 alpha:1.0];
+        labelView.backgroundColor = [UIColor clearColor];
         labelView.textColor = [UIColor colorWithWhite:66/255.0 alpha:1.0];
         labelView.font = [UIFont preferredFontForTextStyle: UIFontTextStyleBody];
-        labelView.font = [UIFont fontWithName:@"FrutigerLTStd-Light" size:[labelView.font pointSize]];
+        labelView.font = [UIFont fontWithName:@"FrutigerLTStd-Roman" size:[labelView.font pointSize]];
+        labelView.textAlignment = NSTextAlignmentCenter;
         labelView.numberOfLines = 0;
         
         Pregunta *pregunta = [self.preguntas objectAtIndex:section];
@@ -189,19 +194,27 @@
         CGFloat height = [SubtemaViewController heightOfText:text withWidth:width] + (VERTICAL_PADDING * 2);
         labelView.frame = CGRectMake(HORIZONTAL_PADDING, 0, width, height);
         
-        UIView *border = [[UIView alloc] initWithFrame:CGRectMake(0, height - 0.5, self.view.bounds.size.width, 0.5)];
+        UIView *border = [[UIView alloc] initWithFrame:CGRectMake(0, height - 1.0, self.view.bounds.size.width, 1.0)];
         border.backgroundColor = [UIColor colorWithWhite:224/255.0 alpha:1.0];
         
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, height)];
-        view.backgroundColor = [UIColor colorWithWhite:250/255.0 alpha:1.0];
-        view.tag = section;
+        if (section == self.expandedSection) {
+            view.backgroundColor = [[MediaHandler colorForPosition:self.position] colorWithAlphaComponent:0.50];
+        } else {
+            view.backgroundColor = [UIColor colorWithWhite:245/255.0 alpha:1.0];
+        }
         [view addSubview:labelView];
         [view addSubview:border];
         
+        UIView *sectionHeader = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, height)];
+        sectionHeader.backgroundColor = [UIColor whiteColor];
+        sectionHeader.tag = section;
+        [sectionHeader addSubview:view];
+        
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(sectionTapped:)];
-        view.userInteractionEnabled = YES;
-        [view addGestureRecognizer:tapGesture];
-        headerView = view;
+        sectionHeader.userInteractionEnabled = YES;
+        [sectionHeader addGestureRecognizer:tapGesture];
+        headerView = sectionHeader;
     }
     return headerView;
 }

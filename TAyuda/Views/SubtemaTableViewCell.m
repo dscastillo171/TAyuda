@@ -9,7 +9,7 @@
 #import "SubtemaTableViewCell.h"
 
 #define HORIZONTAL_PADDING 6.0
-#define VERTICAL_PADDING 12.0
+#define VERTICAL_PADDING 15.0
 
 @interface SubtemaTableViewCell()
 
@@ -51,7 +51,7 @@
     UILabel *name = [UILabel new];
     name.textColor = [UIColor colorWithWhite:66/255.0 alpha:1.0];
     name.font = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-    name.font = [UIFont fontWithName:@"FrutigerLTStd-Light" size:[name.font pointSize]];
+    name.font = [UIFont fontWithName:@"FrutigerLTStd-Roman" size:[name.font pointSize]];
     name.numberOfLines = 2;
     name.textAlignment = NSTextAlignmentCenter;
     [self.contentView addSubview:name];
@@ -73,7 +73,7 @@
     CGRect nameRect = CGRectMake((rect.size.width - textWidth) / 2.0, (rect.size.height - textHeight) / 2.0, textWidth, textHeight);
     self.nameView.frame = nameRect;
     
-    self.bottomBorder.frame = CGRectMake(0, rect.size.height - 0.5, rect.size.width, 0.5);
+    self.bottomBorder.frame = CGRectMake(0, rect.size.height - 1.0, rect.size.width, 1.0);
 }
 
 - (void)setUpWithSubtema:(Subtema *)subtema{
@@ -88,7 +88,7 @@
     static NSDictionary *defaultAttributes;
     if(!defaultAttributes){
         UIFont *systemFont = [UIFont preferredFontForTextStyle:UIFontTextStyleBody];
-        defaultAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"FrutigerLTStd-Light" size:[systemFont pointSize]], NSFontAttributeName, nil];
+        defaultAttributes = [NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"FrutigerLTStd-Roman" size:[systemFont pointSize]], NSFontAttributeName, nil];
     }
     
     CGRect textRect = [text boundingRectWithSize:CGSizeMake(width, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:defaultAttributes context:nil];

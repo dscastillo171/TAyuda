@@ -12,6 +12,8 @@
 
 @interface SubtemaTableViewCell : UITableViewCell
 
+@property (strong, nonatomic) UIColor *borderColor;
+
 - (void)setUpWithSubtema:(Subtema *)subtema;
 
 - (void)setUpWithTramite:(Tramite *)tramite;

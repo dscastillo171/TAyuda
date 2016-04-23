@@ -120,6 +120,7 @@
     SubtemaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SubtemaTableViewCell" forIndexPath:indexPath];
     Subtema *subtema = (Subtema *)[self.contentController objectAtIndexPath:indexPath];
     [cell setUpWithSubtema:subtema];
+    [cell setBorderColor:[[MediaHandler colorForPosition:self.position] colorWithAlphaComponent:0.5]];
     [cell setNeedsDisplay];
     return cell;
 }
